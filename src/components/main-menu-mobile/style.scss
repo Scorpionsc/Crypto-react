@@ -1,0 +1,36 @@
+@import "../../scss/main";
+
+.main-menu-mobile {
+
+  &__header {
+    height: 71px;
+    border-bottom: 1px solid $color_3;
+  }
+
+  &__body {
+    overflow-y: auto;
+    position: absolute;
+    top: 71px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__link {
+    padding: 10px 0;
+    color: $color_5;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border-bottom: 1px solid $color_3;
+    @include main-font1();
+
+    i {
+      margin: 0 20px;
+      font-size: 45px;
+    }
+
+  }
+
+
+}

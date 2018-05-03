@@ -1,0 +1,26 @@
+@import "../../scss/main";
+
+.main-menu {
+
+  &__link {
+    border-bottom: 1px solid $color_3;
+    padding: 10px 0;
+    color: $color_5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    i {
+      margin: 0 20px;
+      font-size: 45px;
+    }
+
+    span {
+      display: block;
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+
+  }
+
+}

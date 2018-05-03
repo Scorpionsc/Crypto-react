@@ -1,0 +1,28 @@
+@import "../../scss/main";
+
+.app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $color_1;
+}
+
+.appAnimation-appear {
+  opacity: 0;
+
+  &-active {
+    opacity: 1;
+  }
+
+}
+
+.appAnimation-leave {
+  opacity: 0;
+
+  &-active {
+    opacity: 1;
+  }
+
+}

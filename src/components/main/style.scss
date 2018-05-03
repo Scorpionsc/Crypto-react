@@ -1,0 +1,122 @@
+@import "../../scss/main";
+
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition-property: transform;
+  transition-timing-function: ease-in-out;
+  transition-duration: 300ms;
+
+  &__header {
+    background: $color_2;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+  }
+
+  &__profile-menu{
+    width: 50px;
+    height: 50px;
+  }
+
+  &__content{
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $color_5;
+  }
+
+  &__menu-btn {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    padding: 0;
+
+    i {
+      font-size: 24px;
+      color: $color_5;
+    }
+
+  }
+
+  &.opened {
+    transform: translateX(270px)
+  }
+
+  &__aside {
+    width: 270px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -270px
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .main {
+
+    &__header {
+      background: $color_1;
+      height: 80px;
+    }
+
+    &__logo {
+      width: 100px;
+      height: 80px;
+      background: $color_2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        display: block;
+        width: 54px;
+        fill: $color_5;
+      }
+
+    }
+
+    &__avatar {
+      width: 61px;
+      height: 61px;
+    }
+
+    &__profile-menu{
+      width: 61px;
+      height: 61px;
+      margin: 0 10px;
+    }
+
+    &__content{
+      top: 80px;
+      left: 100px;
+    }
+
+    &__aside {
+      width: 100px;
+      position: absolute;
+      top: 80px;
+      bottom: 0;
+      left: 0;
+    }
+
+
+  }
+
+}

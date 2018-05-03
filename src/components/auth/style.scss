@@ -1,0 +1,51 @@
+@import "../../scss/main";
+
+.auth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  height: 100vh;
+  background: $color_1;
+  @include main-font1;
+
+  &__wrap {
+    text-align: center;
+  }
+
+  &__with-social {
+    text-align: center;
+    vertical-align: middle;
+
+    p {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: $color_6;
+      letter-spacing: 0.9px;
+    }
+
+  }
+
+  &__btn {
+    border: none;
+    background: transparent;
+    vertical-align: middle;
+    display: inline-block;
+    width: 55px;
+    margin: 0 10px;
+    padding: 0;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+
+}

@@ -1,0 +1,60 @@
+@import "main";
+
+.pre-loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: grid;
+	grid-template: 100% / 100%;
+	background: $color_1;
+	z-index: 2;
+
+	&__wrap{
+		align-self: center;
+		justify-self: center;
+		background-color: $color_5;
+		box-shadow:0 0 15px 2px $color_3;
+		width:5em;
+		height:5em;
+		border-radius:50%;
+		margin:3em auto 0;
+		position:relative;
+		animation-name: spin;
+		animation-duration: 2.5s;
+		animation-iteration-count:infinite;
+		animation-timing-function:linear;
+
+		&:after {
+			display: block;
+			content: '';
+			width: 60%;
+			height: 60%;
+			background-color: $color_1;
+			box-shadow: 0 0 15px 2px $color_3 inset;
+			border-radius :50%;
+			margin: 0 auto;
+			position: relative;
+			top: 20%;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			width: 15%;
+			height: 15%;
+			background-color: $color_2;
+			position: absolute;
+			top: 50%;
+			margin-top: -1px;
+			right: 4%;
+			border-radius: 50%;
+		}
+	}
+
+}
+
+@include spin-animation();
+
+

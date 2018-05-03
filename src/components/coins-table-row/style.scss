@@ -1,0 +1,42 @@
+@import "../../scss/main";
+
+.coins-table-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $color_1;
+  @include main-font1();
+
+  div {
+    display: none;
+    width: 50%;
+    border-left: none;
+    padding: 10px;
+  }
+
+  & > &__name {
+    display: block;
+  }
+
+  & > &__price {
+    display: block;
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .coins-table-row {
+
+    div{
+      display: block;
+      width: 16%;
+
+      &:first-child {
+        width: 20%;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,21 @@
+@import "../../scss/main";
+
+.logo {
+  margin: 0 auto 40px;
+  text-align: center;
+
+  svg {
+    width: 80px;
+    height: 86px;
+    fill: $color_5;
+  }
+
+  p {
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: 200;
+    color: $color_5;
+    letter-spacing: 1.2px;
+  }
+
+}
