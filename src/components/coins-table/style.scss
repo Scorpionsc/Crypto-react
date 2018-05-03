@@ -42,8 +42,12 @@
 
     &:nth-child(odd) {
       background: $color_11;
-
     }
+
+    &:hover {
+      background: #ceffde;
+    }
+
   }
 
 }

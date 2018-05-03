@@ -3,6 +3,9 @@ import Logo from '../logo';
 import {IconGooglePlus} from '../../icons';
 import './style.scss';
 import firebase from '../../firebase';
+import { changeUser} from "../../store/actions";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
 class Auth extends React.PureComponent {
 
@@ -24,6 +27,12 @@ class Auth extends React.PureComponent {
 
                         </button>
 
+                        <button className="auth__guest" onClick={this.authAsGuest}>
+
+                            <i className="material-icons">child_care</i>
+                            <span>Guest</span>
+                        </button>
+
                     </div>
 
                 </div>
@@ -33,17 +42,44 @@ class Auth extends React.PureComponent {
 
     }
 
+    authAsGuest = () => {
+
+        const {changeUser} = this.props;
+
+        changeUser({
+            displayName: 'Guest',
+            email: '',
+            phoneNumber: '',
+            photoURL: '',
+            providerId: 'guest',
+            uid: 'guest'
+        });
+
+
+    };
+
     authWithGoogle = () => {
 
         const provider = new firebase.auth.GoogleAuthProvider();
 
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
-
         firebase.auth().signInWithPopup(provider);
 
-    }
+    };
 
 }
 
-export default Auth;
+const putStateToProps = (state) => {
+    return {
+        authorized: state['authorized']
+    }
+};
+
+const putActionsToProps = (dispatch) => {
+    return {
+        changeUser: bindActionCreators(changeUser, dispatch)
+    }
+};
+
+export default connect(putStateToProps, putActionsToProps)(Auth);

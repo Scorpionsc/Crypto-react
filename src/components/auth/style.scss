@@ -19,10 +19,13 @@
   }
 
   &__with-social {
-    text-align: center;
-    vertical-align: middle;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
     p {
+      width: 100%;
       text-align: center;
       margin-bottom: 10px;
       font-size: 18px;
@@ -38,12 +41,37 @@
     vertical-align: middle;
     display: inline-block;
     width: 55px;
+    height: 55px;
     margin: 0 10px;
     padding: 0;
 
     svg {
       width: 100%;
       height: auto;
+    }
+
+  }
+
+  &__guest {
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid $color_5;
+    background: transparent;
+    margin: 0 10px;
+    color: $color_5;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+    transition-property: color, background-color;
+
+    span {
+      display: block;
+    }
+
+    &:hover {
+      background: $color_5;
+      color: $color_1;
     }
 
   }

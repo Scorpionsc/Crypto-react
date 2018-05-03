@@ -22,6 +22,24 @@ class App extends React.PureComponent {
 
     }
 
+    componentWillUpdate(newProps) {
+
+        const {changeAuthorized} = this.props;
+
+        if (newProps['user'] !== this.props['user']) {
+
+            if (newProps['user']['providerId'] === 'guest') {
+                changeAuthorized(1);
+            } else {
+                changeAuthorized(0);
+            }
+
+            return false
+
+        }
+
+    }
+
     render() {
 
         const {authorized, dropDownId} = this.props;
@@ -121,6 +139,7 @@ class App extends React.PureComponent {
 
 const putStateToProps = (state) => {
     return {
+        user: state['user'],
         authorized: state['authorized'],
         viewSize: state['viewSize'],
         dropDownId: state['dropDown']['id']

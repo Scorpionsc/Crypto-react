@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {changeDropDown} from "../../store/actions";
+import { changeDropDown, changeUser} from "../../store/actions";
 import ReactDOM from 'react-dom';
 import firebase from '../../firebase';
 
@@ -47,7 +47,9 @@ class ProfileMenu extends React.PureComponent {
     getMenuItems() {
 
         return this.menuItems.map(item => {
-            return <div onClick={()=>{this.menuClicked(item['id'])}} className="profile-menu-item" key={item['id'].toString()}>{item['text']}</div>;
+            return <div onClick={() => {
+                this.menuClicked(item['id'])
+            }} className="profile-menu-item" key={item['id'].toString()}>{item['text']}</div>;
         });
 
 
@@ -77,12 +79,12 @@ class ProfileMenu extends React.PureComponent {
 
     };
 
-    menuClicked = (id)=>{
+    menuClicked = (id) => {
 
-        const {changeDropDown}=this.props;
+        const {changeDropDown} = this.props;
 
-        if( id === 1 ){
-            firebase.auth().signOut();
+        if (id === 1) {
+            this.signOut();
         }
 
         changeDropDown({
@@ -94,17 +96,43 @@ class ProfileMenu extends React.PureComponent {
 
     };
 
+    signOut = () => {
+
+        const {user, changeUser} = this.props;
+
+        if (user['providerId'] === 'guest') {
+
+            changeUser({
+                displayName: '',
+                email: '',
+                phoneNumber: '',
+                photoURL: '',
+                providerId: '',
+                uid: ''
+            });
+
+        } else {
+
+            firebase.auth().signOut();
+
+        }
+
+
+    }
+
 }
 
 const putStateToProps = (state) => {
     return {
-        dropDownEvent: state['dropDown']['event']
+        dropDownEvent: state['dropDown']['event'],
+        user: state['user']
     }
 };
 
 const putActionsToProps = (dispatch) => {
     return {
-        changeDropDown: bindActionCreators(changeDropDown, dispatch)
+        changeDropDown: bindActionCreators(changeDropDown, dispatch),
+        changeUser: bindActionCreators(changeUser, dispatch)
     }
 };
 
